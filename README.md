@@ -186,7 +186,7 @@ docker build -t nlpia .
 If you want to keep your notebook file or share a folder with the running container then use:
 
 ```bash
-docker run -p 8888:8888 -v ~:/home/jovyan/work nlpia
+docker run --rm -it -p 8888:8888 -v "`pwd`":/home/jovyan/work nlpia
 ```
 
 Then open a new notebook and test your code. Make sure save it inside `work` directory so it's accessible outside the container.
