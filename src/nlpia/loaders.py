@@ -58,7 +58,7 @@ import spacy
 from gensim.models import KeyedVectors
 from gensim.models.keyedvectors import REAL, Vocab
 from gensim.scripts.glove2word2vec import glove2word2vec
-from pugnlp.util import clean_columns
+# from pugnlp.util import clean_columns
 
 from nlpia.constants import DATA_PATH, BIGDATA_PATH
 from nlpia.constants import DATA_INFO_FILE, BIGDATA_INFO_FILE, BIGDATA_INFO_LATEST
@@ -870,7 +870,8 @@ def download_unzip(names=None, normalize_filenames=False, verbose=True):
                 log.debug('download_unzip.filepaths=' + str(file_paths))
         else:
             df = pd.read_html(DATA_INFO['url'][name], **DATA_INFO['downloader_kwargs'][name])[-1]
-            df.columns = clean_columns(df.columns)
+            # df.columns = clean_columns(df.columns)
+            df.columns = normalize_column_names(df.columns)
             file_paths[name] = os.path.join(DATA_PATH, name + '.csv')
             df.to_csv(file_paths[name])
             file_paths[name] = normalize_ext_rename(file_paths[name])

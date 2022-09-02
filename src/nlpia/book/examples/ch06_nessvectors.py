@@ -78,6 +78,7 @@ import os
 
 from collections import OrderedDict
 
+import numpy as np
 import pandas as pd
 from nlpia.data.loaders import get_data, BIGDATA_PATH
 from gensim.models import KeyedVectors
