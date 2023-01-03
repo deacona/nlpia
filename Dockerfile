@@ -10,4 +10,4 @@ RUN pip install -e .
 WORKDIR /home/jovyan
 RUN chown -R jovyan nlpia
 
-EXPOSE 8888
+EXPOSE 8888 6006
